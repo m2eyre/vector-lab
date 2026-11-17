@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "seed": 20261117,
+  "title": "Crosswind Keyhole",
+  "concept": "Thread a light object through a tight gap while a wind band shoves it off line. Only streams and one attractor are available.",
+  "template": "narrow",
+  "difficulty": 3,
+  "objectCount": 1,
+  "modifiers": ["crosswind", "light"],
+  "tools": { "attractor": 1, "repulsor": 0, "vortex": 0, "field": 2 },
+  "maxDevices": 3
+}

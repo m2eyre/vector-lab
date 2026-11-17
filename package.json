@@ -1,0 +1,36 @@
+{
+  "name": "vector-lab",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "dev:api": "tsx server/dev-server.ts",
+    "db:local": "psql \"${DATABASE_URL:-postgres://vl:vl@127.0.0.1:5432/vectorlab_test}\" -q -f server/dev/local-auth-stub.sql -f supabase/migrations/0001_init.sql",
+    "build:edge": "node scripts/build-edge.mjs",
+    "publish:daily": "tsx server/scripts/publish.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.9.0",
+    "@supabase/supabase-js": "^2.45.4",
+    "postgres": "^3.4.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "@vitejs/plugin-react": "4.3.3",
+    "esbuild": "^0.21.5",
+    "tsx": "^4.19.2",
+    "typescript": "5.6.3",
+    "vite": "5.4.10",
+    "vite-plugin-singlefile": "2.0.3",
+    "vitest": "2.1.4"
+  }
+}

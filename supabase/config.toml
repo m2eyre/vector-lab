@@ -1,0 +1,4 @@
+# The API authenticates callers itself (guests are allowed on read endpoints), so the
+# platform-level JWT check is turned off for this function.
+[functions.api]
+verify_jwt = false

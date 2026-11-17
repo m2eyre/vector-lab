@@ -1,0 +1,22 @@
+# Alternative to the in-database cron: publish from GitHub Actions, which has no Edge
+# Function CPU limit. Needs repository secrets DATABASE_URL (Supabase connection string) and,
+# for the AI designer, ANTHROPIC_API_KEY.
+name: Publish daily challenge
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx tsx server/scripts/publish.ts --days=2
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

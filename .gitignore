@@ -1,0 +1,8 @@
+node_modules
+dist
+dist-single
+shots
+.env*
+!.env.example
+.localdata
+supabase/functions/api/server.bundle.js
